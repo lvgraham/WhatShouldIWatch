@@ -1,10 +1,13 @@
-const button = document.querySelector('.container button');
-const tvResults = document.querySelector('.container div')
+const movieButton = document.getElementById('Movie');
+const seriesButton = document.getElementById('Series');
+const searchResults = document.querySelector('.container div');
+const movieUrl = "https://www.omdbapi.com/?i=tt3896198&apikey=274cb9ed";
+const seriesUrl = "https://www.omdbapi.com/?i=tt3896198&apikey=274cb9ed";
 
-button.addEventListener('click', getTvResults);
+movieButton.addEventListener('click', getMovieResults);
 
-async function getTvResults(){
-  const tvData = await fetch('https://www.omdbapi.com/?i=tt3896198&apikey=274cb9ed',{
+async function getMovieResults(){
+  const tvData = await fetch(movieUrl,{
     headers:{
       'Accept':'application/json',
     } });
@@ -12,3 +15,16 @@ async function getTvResults(){
     console.log(tvData);
     console.log(tvDataObj);
 }
+
+seriesButton.addEventListener('click',getSeriesResults)
+
+async function getSeriesResults(){
+  const tvData = await fetch(movieUrl,{
+    headers:{
+      'Accept':'application/json',
+    } });
+    const tvDataObj = await tvData.json();
+    console.log(tvData);
+    console.log(tvDataObj);
+}
+
