@@ -4,6 +4,7 @@ const searchResults = document.querySelector('.container div');
 let searchTerm;
 const seriesUrl = "https://www.omdbapi.com/?s=house&type=series&apikey=274cb9ed";
 
+//get movie results
 movieButton.addEventListener('click', getMovieResults);
 
 async function getMovieResults(){
@@ -21,6 +22,7 @@ async function getMovieResults(){
     // document.getElementById('results').innerHTML = JSON.stringify(tvDataObj.Search[9].Title)
 }
 
+//get series results
 seriesButton.addEventListener('click',getSeriesResults)
 
 async function getSeriesResults(){
@@ -30,9 +32,16 @@ async function getSeriesResults(){
     headers:{
       'Accept':'application/json',
     } });
-    const tvDataObj = await tvData.json();
+    const tvDataObj = await tvData.json();;
+
+    document.getElementById('title').textContent = tvDataObj.Search[0].Title
+    document.getElementById('year').textContent = tvDataObj.Search[0].Year
+    document.getElementById('poster').src = tvDataObj.Search[0].Poster
+    
     console.log(tvData);
     console.log(tvDataObj);
+
+    //I think I need to do something with math.random to get the random results through the results.
 
     //the below code shows all data in tvDataObj 
     // document.getElementById('results').innerHTML = JSON.stringify(tvDataObj);
