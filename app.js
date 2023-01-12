@@ -15,6 +15,12 @@ async function getMovieResults(){
       'Accept':'application/json',
     } });
     const tvDataObj = await tvData.json();
+
+    //displaying information on the page
+    document.getElementById('title').textContent = tvDataObj.Search[0].Title
+    document.getElementById('year').textContent = tvDataObj.Search[0].Year
+    document.getElementById('poster').src = tvDataObj.Search[0].Poster
+
     console.log(tvData);
     console.log(tvDataObj);
 
@@ -32,14 +38,18 @@ async function getSeriesResults(){
     headers:{
       'Accept':'application/json',
     } });
-    const tvDataObj = await tvData.json();;
+    const tvDataObj = await tvData.json();
 
+    
+    
+    //displaying information on the page
     document.getElementById('title').textContent = tvDataObj.Search[0].Title
     document.getElementById('year').textContent = tvDataObj.Search[0].Year
     document.getElementById('poster').src = tvDataObj.Search[0].Poster
+
     
-    console.log(tvData);
-    console.log(tvDataObj);
+    // console.log(tvData);
+    // console.log(tvDataObj);
 
     //I think I need to do something with math.random to get the random results through the results.
 
