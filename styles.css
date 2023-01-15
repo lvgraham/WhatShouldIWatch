@@ -1,6 +1,11 @@
-*{
+body{
   text-align: center;
   font-family: 'Rubik', sans-serif;
+  background-color: #f0ebd8;
+}
+
+header, .search-title{
+  color: #13505b;
 }
 
 .button-div{
@@ -8,5 +13,7 @@
 }
 
 #results{
-
+  margin: 20px auto;
+  border-radius: 5px;
+  width: 60%;
 }
