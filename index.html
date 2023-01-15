@@ -5,7 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What Should I Watch?</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Noto+Serif+Khojki&family=Rubik:wght@300;400;600&display=swap" rel="stylesheet"> 
 </head>
 <body>
   <header>
@@ -13,17 +16,21 @@
    <h3>The random suggester for when you just don't know what to watch</h3>
   </header>
   <div class="container">
-    Enter Random Word: <input id="search">
-    <button id="Movie" value="Movie">Get Movie</button>
-    <button id="Series" value="Series">Get Series</button>
-    <div id="results">
-      <p>Title: <span id="title"></span> 
-        <br>
-        Year: <span id="year"></span> 
-        <br>
-        Poster: <img id="poster" src="">
-      </p>
+    Enter Random Word: <br>
+    <input id="search">
+    <div class="button-div">
+      <button id="Movie" value="Movie">Get Movie</button>
+      <button id="Series" value="Series">Get Series</button>
     </div>
+    
+  </div>
+  <div id="results">
+    <p><span id="title"></span> 
+      <br>
+      <span id="year"></span> 
+      <br>
+      <img id="poster" src="">
+    </p>
   </div>
   
   <script src="./app.js"></script>

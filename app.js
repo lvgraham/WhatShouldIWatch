@@ -31,7 +31,6 @@ async function getMovieResults(){
     document.getElementById('year').textContent = movieResponseObj.Search[searchResult].Year
     document.getElementById('poster').src = movieResponseObj.Search[searchResult].Poster
 
-
 }
 
 //------------------SERIES REULTS FUNCTIONS---------------------
@@ -55,7 +54,7 @@ async function getSeriesResults(){
 
   //get random result from response
   let searchResult = Math.floor(Math.random()* seriesResponseObj.Search.length);
-  
+
   //display results on the page
     document.getElementById('title').textContent = seriesResponseObj.Search[searchResult].Title
     document.getElementById('year').textContent = seriesResponseObj.Search[searchResult].Year
