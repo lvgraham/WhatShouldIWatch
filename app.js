@@ -4,56 +4,62 @@ const searchResults = document.querySelector('.container div');
 let searchTerm;
 const seriesUrl = "https://www.omdbapi.com/?s=house&type=series&apikey=274cb9ed";
 
+//------------------MOVIE REULTS FUNCTIONS---------------------
+
 //get movie results
 movieButton.addEventListener('click', getMovieResults);
 
 async function getMovieResults(){
+  //variables for API URL
   let searchTerm = document.getElementById('search').value
   let movieUrl = "https://www.omdbapi.com/?s="+searchTerm+"&type=movie&apikey=274cb9ed";
-  const tvData = await fetch(movieUrl,{
+
+  //API Connection
+  const movieResponse = await fetch(movieUrl,{
     headers:{
       'Accept':'application/json',
     } });
-    const tvDataObj = await tvData.json();
 
-    //displaying information on the page
-    document.getElementById('title').textContent = tvDataObj.Search[0].Title
-    document.getElementById('year').textContent = tvDataObj.Search[0].Year
-    document.getElementById('poster').src = tvDataObj.Search[0].Poster
+  //response from API
+  const movieResponseObj = await movieResponse.json();
 
-    console.log(tvData);
-    console.log(tvDataObj);
+  //get random result from response
+  let searchResult = Math.floor(Math.random()* movieResponseObj.Search.length);
 
-    //the below code shows the title of the first entry in tvDataObj 
-    // document.getElementById('results').innerHTML = JSON.stringify(tvDataObj.Search[9].Title)
+  //display result on page
+    document.getElementById('title').textContent = movieResponseObj.Search[searchResult].Title
+    document.getElementById('year').textContent = movieResponseObj.Search[searchResult].Year
+    document.getElementById('poster').src = movieResponseObj.Search[searchResult].Poster
+
+
 }
+
+//------------------SERIES REULTS FUNCTIONS---------------------
 
 //get series results
 seriesButton.addEventListener('click',getSeriesResults)
 
 async function getSeriesResults(){
+  //variables for API URL
   let searchTerm = document.getElementById('search').value
   let seriesUrl = "https://www.omdbapi.com/?s="+searchTerm+"&type=series&apikey=274cb9ed";
-  const tvData = await fetch(seriesUrl,{
+
+  //API Connection
+  const seriesResponse = await fetch(seriesUrl,{
     headers:{
       'Accept':'application/json',
     } });
-    const tvDataObj = await tvData.json();
 
+  //response from API
+  const seriesResponseObj = await seriesResponse.json();
+
+  //get random result from response
+  let searchResult = Math.floor(Math.random()* seriesResponseObj.Search.length);
+  
+  //display results on the page
+    document.getElementById('title').textContent = seriesResponseObj.Search[searchResult].Title
+    document.getElementById('year').textContent = seriesResponseObj.Search[searchResult].Year
+    document.getElementById('poster').src = seriesResponseObj.Search[searchResult].Poster
     
-    
-    //displaying information on the page
-    document.getElementById('title').textContent = tvDataObj.Search[0].Title
-    document.getElementById('year').textContent = tvDataObj.Search[0].Year
-    document.getElementById('poster').src = tvDataObj.Search[0].Poster
-
-    
-    // console.log(tvData);
-    // console.log(tvDataObj);
-
-    //I think I need to do something with math.random to get the random results through the results.
-
-    //the below code shows all data in tvDataObj 
-    // document.getElementById('results').innerHTML = JSON.stringify(tvDataObj);
 }
 
