@@ -15,10 +15,7 @@ async function getMovieResults(){
   let movieUrl = "https://www.omdbapi.com/?s="+searchTerm+"&type=movie&apikey=274cb9ed";
 
   //API Connection
-  const movieResponse = await fetch(movieUrl,{
-    headers:{
-      'Accept':'application/json',
-    } });
+  const movieResponse = await fetch(movieUrl);
 
   //response from API
   const movieResponseObj = await movieResponse.json();
@@ -44,11 +41,8 @@ async function getSeriesResults(){
   let seriesUrl = "https://www.omdbapi.com/?s="+searchTerm+"&type=series&apikey=274cb9ed";
 
   //API Connection
-  const seriesResponse = await fetch(seriesUrl,{
-    headers:{
-      'Accept':'application/json',
-    } });
-
+  const seriesResponse = await fetch(seriesUrl);
+  
   //response from API
   const seriesResponseObj = await seriesResponse.json();
 
